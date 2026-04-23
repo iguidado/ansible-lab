@@ -1,0 +1,12 @@
+- name: test
+  hosts: nodes
+  tasks:
+    - name: hostname
+      ansible.builtin.command: hostname
+      register: host_name
+      changed_when: false
+
+    - name: print host
+      debug:
+        var: host_name.stdout
+      changed_when: false

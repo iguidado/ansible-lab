@@ -1,0 +1,57 @@
+
+PLAY [test] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [hostname] ****************************************************************
+changed: [node1]
+changed: [node2]
+
+TASK [print host] **************************************************************
+ok: [node1] => {
+    "host_name": {
+        "changed": true,
+        "cmd": [
+            "hostname"
+        ],
+        "delta": "0:00:00.004214",
+        "end": "2026-04-22 18:59:41.440316",
+        "failed": false,
+        "msg": "",
+        "rc": 0,
+        "start": "2026-04-22 18:59:41.436102",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "node1",
+        "stdout_lines": [
+            "node1"
+        ]
+    }
+}
+ok: [node2] => {
+    "host_name": {
+        "changed": true,
+        "cmd": [
+            "hostname"
+        ],
+        "delta": "0:00:00.003558",
+        "end": "2026-04-22 18:59:41.432955",
+        "failed": false,
+        "msg": "",
+        "rc": 0,
+        "start": "2026-04-22 18:59:41.429397",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "node2",
+        "stdout_lines": [
+            "node2"
+        ]
+    }
+}
+
+PLAY RECAP *********************************************************************
+node1                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+node2                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

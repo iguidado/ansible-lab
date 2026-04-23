@@ -1,0 +1,7 @@
+- name: add user
+  hosts: nodes
+  become: true
+  tasks:
+    - name: idempotent
+      ansible.builtin.user:
+        name: devops

@@ -13,17 +13,28 @@
 #       command: systemctl start nginx
 
 
-
 - name: good practice
   hosts: nodes
   become: true
   tasks:
+    - name: ensure nginx installed
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+
+
     - name: create dir
       ansible.builtin.file:
         path: /opt/app
         state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
 
     - name: start nginx
       ansible.builtin.service:
         name: nginx
         state: started
+        enabled: true

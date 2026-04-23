@@ -9,4 +9,3 @@
     - name: print host
       debug:
         var: host_name.stdout
-      changed_when: false

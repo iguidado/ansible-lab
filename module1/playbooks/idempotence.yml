@@ -1,0 +1,11 @@
+- name: idempotence test
+  hosts: nodes
+  become: true
+  tasks:
+    - name: non idempotent
+      ansible.builtin.command: touch /tmp/test
+
+    - name: idempotent
+      ansible.builtin.file:
+        path: /tmp/test
+        state: file

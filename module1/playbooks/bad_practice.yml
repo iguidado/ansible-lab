@@ -1,0 +1,29 @@
+# Correct this playbook to make it idempotent and clean with native module
+#
+#
+#
+# - name: bad practice
+#   hosts: nodes
+#   become: true
+#   tasks:
+#     - name: create dir
+#       command: mkdir /opt/app
+#  
+#     - name: start nginx
+#       command: systemctl start nginx
+
+
+
+- name: good practice
+  hosts: nodes
+  become: true
+  tasks:
+    - name: create dir
+      ansible.builtin.file:
+        path: /opt/app
+        state: directory
+
+    - name: start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started

@@ -5,3 +5,4 @@
     - name: idempotent
       ansible.builtin.user:
         name: devops
+        state: present

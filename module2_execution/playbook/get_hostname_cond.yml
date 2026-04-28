@@ -1,0 +1,11 @@
+- name: get node1 hostname
+  hosts: nodes
+  tasks:
+    - name: get hostname
+      ansible.builtin.command: hostname
+      register: host_name
+
+    - name:
+      debug:
+        value: host_name
+        when: inventory_hostname == 'node1'

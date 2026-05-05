@@ -5,12 +5,14 @@ services:
     container_name: web01
     ports:
       - "2221:22"
+      - "8081:80"
 
   web02:
     image: rastasheep/ubuntu-sshd:18.04
     container_name: web02
     ports:
       - "2222:22"
+      - "8082:80"
 
   db01:
     image: rastasheep/ubuntu-sshd:18.04
